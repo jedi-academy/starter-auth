@@ -2,6 +2,10 @@
 All notable changes to this project will be documented to this file.
 Change Log history will be recorded in descending order
 
+## 0.0.7
+**Modified Files**
+- MY_Controller.php customize menubar
+
 ## 0.0.6
 **Modified Files**
 - Beta.php restrict access to only users and admins
