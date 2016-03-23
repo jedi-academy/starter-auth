@@ -7,7 +7,6 @@ if (!defined('BASEPATH'))
 define('DATAPATH', './data/');
 define('XMLSUFFIX', '.xml');
 
-// defines users types
 define('ROLE_USER','user');
 define('ROLE_ADMIN','admin');
 
