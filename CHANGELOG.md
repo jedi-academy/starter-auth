@@ -2,6 +2,15 @@
 All notable changes to this project will be documented to this file.
 Change Log history will be recorded in descending order
 
+## 0.0.5
+**Modified Files**
+- Autoload.php
+
+## 0.0.4
+**Added Files**
+- Users.php
+
+
 ## 0.0.3
 **Modified Files**
 - MY_Controller.php to include the authentication links
