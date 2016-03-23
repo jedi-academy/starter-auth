@@ -1,4 +1,4 @@
-<form>
+<form method="POST" action="/auth/submit">
   <div class="form-group">
     <label for="username">Username</label>
     <input type="text" class="form-control" name="userid" id="userid" placeholder="Username">
