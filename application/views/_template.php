@@ -33,6 +33,8 @@ if (!defined('APPPATH'))
             </div>
             <div id="footer" class="span12">
                 Copyright &copy; 2016,  <a href="mailto:someone@somewhere.com">Me</a>.
+{role}
+{sessionid}
             </div>
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>

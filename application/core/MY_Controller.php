@@ -39,6 +39,8 @@ class Application extends CI_Controller {
 
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
+        $this->data['sessionid'] = session_id();
+        $this->data['role'] = $this->session->userdata('userRole');
 		$this->parser->parse('_template', $this->data);
 	}
 
@@ -47,12 +49,58 @@ class Application extends CI_Controller {
 	{
 		$choices = array();
 
+        $role = $this->session->userdata('userRole');
+        $name = $this->session->userdata('userName');
+
 		$choices[] = array('name' => "Alpha", 'link' => '/alpha');
-		$choices[] = array('name' => "Beta", 'link' => '/beta');
-		$choices[] = array('name' => "Gamma", 'link' => '/gamma');
+
+        if($role != null && $name != null)
+        {
+            // We have a user
+            if($role == ROLE_ADMIN)
+            {
+                // WE HAVE AN ADMIN OVER HERE!
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Gamma", 'link' => '/gamma');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+            }
+            else
+            {
+                // WE HAVE A USER OVER HERE!
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+
+            }
+            $choices[] = array('name' => $name, 'link' => '/');
+        }
+        else
+        {
+            $choices[] = array('name' => "Login", 'link' => '/auth');
+        }
+
 		return $choices;
 	}
-
+    
+    function restrict($roleNeeded = null)
+    {
+        $userRole = $this->session->userdata('userRole');
+        if ($roleNeeded != null)
+        {
+            if (is_array($roleNeeded))
+            {
+                if (!in_array($userRole, $roleNeeded))
+                {
+                    redirect('/');
+                    return;
+                }
+            }
+            else if ($userRole != $roleNeeded)
+            {
+                redirect('/');
+                return;
+            }
+        }
+    }
 }
 
 /* End of file MY_Controller.php */
