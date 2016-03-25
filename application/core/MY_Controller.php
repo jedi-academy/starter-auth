@@ -40,6 +40,7 @@ class Application extends CI_Controller {
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
         $this->data['sessionid'] = session_id();
+        $this->data['role'] = $this->session->userdata('userRole');
 		$this->parser->parse('_template', $this->data);
 	}
 
@@ -55,7 +56,30 @@ class Application extends CI_Controller {
         $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
 		return $choices;
 	}
-
+    
+    function restrict($roleNeeded = null)
+    {
+        $userRole = $this->session->userdata('userRole');
+        print_r($userRole );
+        print_r(';/' );
+        print_r($roleNeeded );
+        if ($roleNeeded != null)
+        {
+            if (is_array($roleNeeded))
+            {
+                if (!in_array($userRole, $roleNeeded))
+                {
+                    redirect('/');
+                    return;
+                }
+                else if ($userRole != $roleNeeded)
+                {
+                    redirect('/');
+                    return;
+                }
+            }
+        }
+    }
 }
 
 /* End of file MY_Controller.php */
