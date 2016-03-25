@@ -60,9 +60,6 @@ class Application extends CI_Controller {
     function restrict($roleNeeded = null)
     {
         $userRole = $this->session->userdata('userRole');
-        print_r($userRole );
-        print_r(';/' );
-        print_r($roleNeeded );
         if ($roleNeeded != null)
         {
             if (is_array($roleNeeded))
