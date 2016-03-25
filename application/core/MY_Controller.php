@@ -72,11 +72,11 @@ class Application extends CI_Controller {
                     redirect('/');
                     return;
                 }
-                else if ($userRole != $roleNeeded)
-                {
-                    redirect('/');
-                    return;
-                }
+            }
+            else if ($userRole != $roleNeeded)
+            {
+                redirect('/');
+                return;
             }
         }
     }
