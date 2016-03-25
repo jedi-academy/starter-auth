@@ -49,11 +49,35 @@ class Application extends CI_Controller {
 	{
 		$choices = array();
 
+        $role = $this->session->userdata('userRole');
+        $name = $this->session->userdata('userName');
+
 		$choices[] = array('name' => "Alpha", 'link' => '/alpha');
-		$choices[] = array('name' => "Beta", 'link' => '/beta');
-		$choices[] = array('name' => "Gamma", 'link' => '/gamma');
-        $choices[] = array('name' => "Login", 'link' => '/auth');
-        $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+
+        if($role != null && $name != null)
+        {
+            // We have a user
+            if($role == ROLE_ADMIN)
+            {
+                // WE HAVE AN ADMIN OVER HERE!
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Gamma", 'link' => '/gamma');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+            }
+            else
+            {
+                // WE HAVE A USER OVER HERE!
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+
+            }
+            $choices[] = array('name' => $name, 'link' => '/');
+        }
+        else
+        {
+            $choices[] = array('name' => "Login", 'link' => '/auth');
+        }
+
 		return $choices;
 	}
     
