@@ -21,6 +21,7 @@ class Welcome extends Application {
 	function index()
 	{
 		$this->data['pagebody'] = 'homepage';
+                var_dump($_SESSION['userRole']);
 		$this->render();
 	}
 
