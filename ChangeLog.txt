@@ -1,2 +1,3 @@
-##Description##                   ##Date##                  ##WhoAmI##
-Setup database                    4:18pm                    Carson
+##Description##                       ##Date##                  ##WhoAmI##
+Setup database                        4:18pm                    Carson
+Setup Login view and controller       4:22pm                    Jaegar
