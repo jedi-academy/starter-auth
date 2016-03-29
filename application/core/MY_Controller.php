@@ -81,11 +81,11 @@ class Application extends CI_Controller {
             if (!in_array($userRole, array(ROLE_USER,ROLE_ADMIN))) {
                 // if not logged in, add menu choice to login
                 $choices[] = array('name' => "Login", 'link' => './auth');
-            } else if (in_array($userRole, ROLE_USER)) {
+            } else if ($userRole == ROLE_USER) {
                 // if user, add menu choice for beta and logout
                 $choices[] = array('name' => "Beta", 'link' => '/beta');
                 $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
-            } else if (in_array($userRole, ROLE_USER)) {
+            } else if ($userRole == ROLE_USER) {
                 // if admin, add menu choices for beta, gamma and logout
                 $choices[] = array('name' => "Beta", 'link' => '/beta');
                 $choices[] = array('name' => "Gamma", 'link' => '/gamma');
