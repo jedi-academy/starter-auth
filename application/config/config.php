@@ -6,6 +6,8 @@ if (!defined('BASEPATH'))
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
 	'menudata' => array(
+                array('name' => "Login", 'link' => '/auth'),
+                array('name' => "Logout", 'link' => '/auth/logout'),
 		array('name' => "Alpha", 'link' => '/alpha'),
 		array('name' => "Beta", 'link' => '/beta'),
 		array('name' => "Gamma", 'link' => '/gamma'),
@@ -509,3 +511,5 @@ $config['rewrite_short_tags'] = FALSE;
   | Array:		array('10.0.1.200', '192.168.5.0/24')
  */
 $config['proxy_ips'] = '';
+
+
