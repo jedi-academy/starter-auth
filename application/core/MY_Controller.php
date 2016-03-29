@@ -53,6 +53,32 @@ class Application extends CI_Controller {
 		$choices[] = array('name' => "Gamma", 'link' => '/gamma');
 		return $choices;
 	}
+        
+        function restrict($roleNeeded = null) {
+            $userRole = $this->session->userdata('userRole');
+            if ($roleNeeded != null) {
+                if (is_array($roleNeeded)) {
+                    if (!in_array($userRole, $roleNeeded))
+                    {
+                        redirect("/");
+                        return;
+                    }
+                } else if ($userRole != $roleNeeded) {
+                    redirect("/");
+                    return;
+                }
+            }
+        }
+        
+        function makemenu() {
+            //get role & name from session
+            $userRole = $this->session->userdata('userRole');
+            // make array, with menu choice for alpha
+            // if not logged in, add menu choice to login
+            // if user, add menu choice for beta and logout
+            // if admin, add menu choices for beta, gamma and logout
+            // return the choices array
+        }
 
 }
 
