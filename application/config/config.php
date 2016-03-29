@@ -8,7 +8,7 @@ $config['menu_choices'] = array(
 	'menudata' => array(
 		array('name' => "Alpha", 'link' => '/alpha'),
 		array('name' => "Beta", 'link' => '/beta'),
-		array('name' => "Gamma", 'link' => '/gamma')
+		array('name' => "Gamma", 'link' => '/gamma'),
 	)
 );
 
