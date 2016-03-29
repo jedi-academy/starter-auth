@@ -36,7 +36,6 @@ class Application extends CI_Controller {
 		$mychoices = array('menudata' => $this->makemenu());
 		$this->data['menubar'] = $this->parser->parse('_menubar', $mychoices, true);
 		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
 		$this->parser->parse('_template', $this->data);
