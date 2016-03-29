@@ -1,3 +1,4 @@
-##Description##                       ##Date##                  ##WhoAmI##
-Setup database                        4:18pm                    Carson
-Setup Login view and controller       4:22pm                    Jaegar
+##Description##                   ##Date##                  ##WhoAmI##
+Implemented authentication        4:27pm                    Carson
+Setup Login view and controller   4:22pm                    Jaegar
+Setup database                    4:18pm                    Carson
