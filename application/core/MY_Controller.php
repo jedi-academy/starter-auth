@@ -50,6 +50,7 @@ class Application extends CI_Controller {
                 
                 if ($userRole != NULL) {
                     $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+                    $choices[] = array('name' => "Beta", 'link' => '/beta');
                 } else {
                     $choices[] = array('name' => "Login", 'link' => '/auth');
                 }
@@ -57,9 +58,8 @@ class Application extends CI_Controller {
 		$choices[] = array('name' => "Alpha", 'link' => '/alpha');
                 if ($userRole === ROLE_ADMIN) {
                     $choices[] = array('name' => "Gamma", 'link' => '/gamma');
-                } else if ($userRole === ROLE_USER) {
-                    $choices[] = array('name' => "Beta", 'link' => '/beta');
                 }
+                
 		return $choices;
 	}
         
