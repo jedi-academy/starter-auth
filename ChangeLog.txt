@@ -1,2 +1,3 @@
 ##Description##                   ##Date##                  ##WhoAmI##
+Implemented authentication        4:27pm                    Carson
 Setup database                    4:18pm                    Carson
