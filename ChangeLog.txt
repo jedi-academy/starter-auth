@@ -1,4 +1,5 @@
-##Description##                   ##Date##                  ##WhoAmI##
-Implemented authentication        4:27pm                    Carson
-Setup Login view and controller   4:22pm                    Jaegar
-Setup database                    4:18pm                    Carson
+##Description##                                            ##Date##                  ##WhoAmI##
+Finished authenitication for pages/login/nav bar           4:49pm                    Jaegar
+Implemented authentication                                 4:27pm                    Carson
+Setup Login view and controller                            4:22pm                    Jaegar
+Setup database                                             4:18pm                    Carson
