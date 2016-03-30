@@ -34,6 +34,7 @@ class Application extends CI_Controller {
 	function render()
 	{
 		$mychoices = array('menudata' => $this->makemenu());
+                $this->data['sessionid'] = session_id();
 		$this->data['menubar'] = $this->parser->parse('_menubar', $mychoices, true);
 		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
 
@@ -43,15 +44,56 @@ class Application extends CI_Controller {
 	}
 
 	// build menu choices depending on the user role
-	function makemenu()
+	/*function makemenu()
 	{
 		$choices = array();
 
 		$choices[] = array('name' => "Alpha", 'link' => '/alpha');
 		$choices[] = array('name' => "Beta", 'link' => '/beta');
 		$choices[] = array('name' => "Gamma", 'link' => '/gamma');
+                $choices[] = array('name' => "Login", 'link' => './auth');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
 		return $choices;
-	}
+	}*/
+        
+        function restrict($roleNeeded = null) {
+            $userRole = $this->session->userdata('userRole');
+            if ($roleNeeded != null) {
+                if (is_array($roleNeeded)) {
+                    if (!in_array($userRole, $roleNeeded))
+                    {
+                        redirect("/");
+                        return;
+                    }
+                } else if ($userRole != $roleNeeded) {
+                    redirect("/");
+                    return;
+                }
+            }
+        }
+        
+        function makemenu() {
+            $choices = array();
+            //get role & name from session
+            $userRole = $this->session->userdata('userRole');
+            // make array, with menu choice for alpha
+            $choices[] = array('name' => "Alpha", 'link' => '/alpha');
+            if (!in_array($userRole, array(ROLE_USER,ROLE_ADMIN))) {
+                // if not logged in, add menu choice to login
+                $choices[] = array('name' => "Login", 'link' => './auth');
+            } else if ($userRole == ROLE_USER) {
+                // if user, add menu choice for beta and logout
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+            } else if ($userRole == ROLE_ADMIN) {
+                // if admin, add menu choices for beta, gamma and logout
+                $choices[] = array('name' => "Beta", 'link' => '/beta');
+                $choices[] = array('name' => "Gamma", 'link' => '/gamma');
+                $choices[] = array('name' => "Logout", 'link' => '/auth/logout');
+            }
+            // return the choices array
+            return $choices;
+        }
 
 }
 
