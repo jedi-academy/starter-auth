@@ -34,6 +34,10 @@ class Application extends CI_Controller {
 	function render()
 	{
 		$mychoices = array('menudata' => $this->makemenu());
+                
+                //test if sessions are working with db:
+                //$this->data['sessionid'] = session_id();
+                
 		$this->data['menubar'] = $this->parser->parse('_menubar', $mychoices, true);
 		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
 
