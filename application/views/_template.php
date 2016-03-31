@@ -31,9 +31,10 @@ if (!defined('APPPATH'))
                 
                 {content}
             </div>
-            <div id="footer" class="span12">
+            
                 Copyright &copy; 2016,  <a href="mailto:someone@somewhere.com">Me</a>.
-            </div>
+                <!--{sessionid}-->
+            
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>

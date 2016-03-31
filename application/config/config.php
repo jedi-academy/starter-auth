@@ -3,12 +3,17 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
+define('ROLE_USER','user');
+define('ROLE_ADMIN','admin');
+
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
 	'menudata' => array(
 		array('name' => "Alpha", 'link' => '/alpha'),
 		array('name' => "Beta", 'link' => '/beta'),
 		array('name' => "Gamma", 'link' => '/gamma'),
+                array('name' => "Login", 'link' => '/auth'),
+                array('name' => "Logout", 'link' => 'auth/logout')
 	)
 );
 
@@ -373,6 +378,7 @@ $config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
+
 
 /*
   |--------------------------------------------------------------------------
