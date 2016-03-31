@@ -11,7 +11,8 @@ class Beta extends Application {
 
 	function __construct()
 	{
-		parent::__construct();
+            parent::__construct();
+            $this->restrict(array(ROLE_USER,ROLE_ADMIN));
 	}
 
 	//-------------------------------------------------------------
@@ -20,8 +21,8 @@ class Beta extends Application {
 
 	function index()
 	{
-		$this->data['pagebody'] = 'beta';
-		$this->render();
+            $this->data['pagebody'] = 'beta';
+            $this->render();
 	}
 
 }
