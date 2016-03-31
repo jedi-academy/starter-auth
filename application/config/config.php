@@ -3,6 +3,9 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
+define('ROLE_USER','user');
+define('ROLE_ADMIN','admin');
+
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
 	'menudata' => array(
