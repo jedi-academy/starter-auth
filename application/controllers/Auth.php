@@ -16,12 +16,9 @@
 				$this->session->set_userdata('userID',$key);
 				$this->session->set_userdata('userName',$user->name);
 				$this->session->set_userdata('userRole',$user->role);
-				redirect('/');
+				
 			}
-			else{
-				redirect("$key");
-			}
-			
+			redirect('/');
 		}
 		function logout() {
 			$this->session->sess_destroy();
